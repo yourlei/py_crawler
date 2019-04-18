@@ -1,7 +1,7 @@
 import json
 import pymysql
 from DBUtils.PooledDB import PooledDB
-from crawler.settings import DBconfig
+from crawler.settings import MYSQL_CONFIG
 
 
 class MysqlPool:

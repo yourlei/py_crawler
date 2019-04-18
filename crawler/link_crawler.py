@@ -2,7 +2,9 @@
 # 从html中解析a标签的链接
 
 import re
-from common import get_html
+from utils.common import get_html
+from database.mysql import MysqlPool
+
 
 def get_links(html):
     """返回html中的链接 
@@ -15,6 +17,8 @@ def get_links(html):
 
 def link_crawler(seed_url, link_regex):
     """爬取html"""
+    db = MysqlPool()
+
     crawl_queue = [seed_url]
     while crawl_queue and len(crawl_queue) < 10:
         url = crawl_queue.pop()
@@ -24,7 +28,7 @@ def link_crawler(seed_url, link_regex):
                 crawl_queue.append(link)
             # crawl_queue.append(link)
     print(crawl_queue, "............")
-
+    
 if __name__ == "__main__":
     # https://www.lagou.com/zhaopin/Node.js/?labelWords=label
     # https://www.lagou.com/zhaopin/Node.js/2/?filterOption=2
