@@ -20,11 +20,13 @@ def link_crawler(seed_url, link_regex):
         url = crawl_queue.pop()
         html = get_html(url)
         for link in get_links(html):
-            # print(link, '///////////')
-            # if re.match(link_regex, link):
-            #     crawl_queue.append(link)
-            crawl_queue.append(link)
+            if re.match(link_regex, link):
+                crawl_queue.append(link)
+            # crawl_queue.append(link)
     print(crawl_queue, "............")
 
 if __name__ == "__main__":
-    link_crawler('https://www.lagou.com/zhaopin/Node.js/?labelWords=label', '/(index|view)')
+    # https://www.lagou.com/zhaopin/Node.js/?labelWords=label
+    # https://www.lagou.com/zhaopin/Node.js/2/?filterOption=2
+    # https://www.lagou.com/zhaopin/Node.js/3/?filterOption=3
+    link_crawler('https://www.lagou.com/zhaopin/Node.js/3/?filterOption=3', '^https://www.lagou.com/jobs/\d+.html$')

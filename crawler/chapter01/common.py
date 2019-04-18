@@ -15,7 +15,6 @@ def get_html(url, num_retries=2):
         req.add_header('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36')
         html = urllib.request.urlopen(req).read()
     except urllib.request.HTTPError as e:
-        print(e.msg)
         html = None
         if num_retries > 0:
             if hasattr(e, 'code') and 500 <= e.code < 600:
