@@ -17,7 +17,6 @@ def get_links(html):
 
 def link_crawler(seed_url, link_regex):
     """爬取html"""
-    db = MysqlPool()
 
     crawl_queue = [seed_url]
     while crawl_queue and len(crawl_queue) < 10:
@@ -28,7 +27,14 @@ def link_crawler(seed_url, link_regex):
                 crawl_queue.append(link)
             # crawl_queue.append(link)
     print(crawl_queue, "............")
+
+def saveLinks(links):
+    """保存网页链接地址"""
+    db = MysqlPool()
+
+
     
+
 if __name__ == "__main__":
     # https://www.lagou.com/zhaopin/Node.js/?labelWords=label
     # https://www.lagou.com/zhaopin/Node.js/2/?filterOption=2

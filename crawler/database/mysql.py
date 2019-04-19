@@ -40,7 +40,7 @@ class MysqlPool:
     keys = ', '.join(data.keys())
     values = ', '.join(['%s'] * len(data))
     sql = 'INSERT INTO {table}({keys}) VALUES ({values})'.format(table=table, keys=keys, values=values)
-    print(sql, tuple(data.values()))
+    
     try:
       self.cur.execute(sql, tuple(data.values()))
       self.conn.commit()
