@@ -1,0 +1,8 @@
+flask
+celery
+redis
+requests
+beautifulsoup4
+lxml
+PyMySQL
+DBUtils
