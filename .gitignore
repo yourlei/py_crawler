@@ -1,5 +1,11 @@
 .vscode
 __pycache__
-python3_scrap.egg-info
-*.xlsx
-*.json
+
+*.egg-info/
+wheels/
+
+*.log
+*.csv
+
+*.zip
+*.tar
